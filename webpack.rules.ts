@@ -4,17 +4,19 @@ export const rules: Required<ModuleOptions>['rules'] = [
   // Add support for native node modules
   {
     test: /native_modules[/\\].+\.node$/,
-    use: 'node-loader',
+    use: 'node-loader'
   },
   {
     test: /[/\\]node_modules[/\\].+\.(m?js|node)$/,
-    parser: { amd: false },
+    parser: {
+      amd: false
+    },
     use: {
       loader: '@vercel/webpack-asset-relocator-loader',
       options: {
-        outputAssetBase: 'native_modules',
-      },
-    },
+        outputAssetBase: 'native_modules'
+      }
+    }
   },
   {
     test: /\.tsx?$/,
@@ -22,8 +24,8 @@ export const rules: Required<ModuleOptions>['rules'] = [
     use: {
       loader: 'ts-loader',
       options: {
-        transpileOnly: true,
-      },
-    },
-  },
+        transpileOnly: true
+      }
+    }
+  }
 ];

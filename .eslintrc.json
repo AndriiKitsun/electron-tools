@@ -15,14 +15,9 @@
       ],
       "extends": [
         "eslint:recommended", // https://eslint.org/docs/latest/rules/
-        "plugin:@typescript-eslint/recommended", // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended.ts
-        "plugin:@typescript-eslint/recommended-requiring-type-checking", // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.ts
-        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking", // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-type-checked.ts
         "plugin:@angular-eslint/recommended", // https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/src/configs/recommended.json
-        "plugin:@angular-eslint/template/process-inline-templates", // https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/src/configs/process-inline-templates.json
-        "plugin:import/recommended",
-        "plugin:import/electron",
-        "plugin:import/typescript"
+        "plugin:@angular-eslint/template/process-inline-templates" // https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/src/configs/process-inline-templates.json
       ],
       "parserOptions": {
         "project": [
@@ -51,13 +46,13 @@
 
         // typescript-eslint
         // Override typescript-eslint recommended rules
-        "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/unbound-method": [
           "error",
           {
             "ignoreStatic": true
           }
         ],
+        "@typescript-eslint/no-floating-promises": "off",
         // Rules
         "@typescript-eslint/explicit-member-accessibility": [
           "error",
@@ -276,7 +271,6 @@
 
         // eslint
         // Override eslint recommended rules
-        "no-const-assign": "error",
         "no-constant-condition": [
           "error",
           {
@@ -305,13 +299,11 @@
         "key-spacing": "off",
         "default-param-last": "off",
         "no-duplicate-imports": "off",
-        "no-redeclare": "off",
         "padding-line-between-statements": "off",
         // Rules
         "object-shorthand": "error",
         "quote-props": ["error", "as-needed"],
         "prefer-template": "error",
-        "prefer-spread": "error",
         "no-useless-call": "error",
         "prefer-arrow-callback": "error",
         "no-useless-return": "error",
@@ -342,7 +334,6 @@
         "space-in-parens": "error",
         "computed-property-spacing": "error",
         "comma-style": "error",
-        "no-var": "error",
         "array-callback-return": [
           "error",
           {
@@ -399,8 +390,15 @@
         "semi-spacing": "warn",
         "semi-style": "warn",
         "no-sequences": "error",
-        "prefer-const": "error",
         "yoda": "error"
+      }
+    },
+    {
+      "files": [
+        "webpack.*.ts"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unsafe-call": "off"
       }
     },
     {

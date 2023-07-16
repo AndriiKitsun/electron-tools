@@ -1,12 +1,12 @@
-import { join } from "path";
-import { app, BrowserWindow } from "electron";
+import { join } from 'path';
+import { app, BrowserWindow } from 'electron';
 
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 
 const args = process.argv.slice(1);
 const isServeMode = args.some(arg => arg === '--serve');
 
-const createWindow = () => {
+const createWindow = (): void => {
   const window = new BrowserWindow({
     width: 1100,
     height: 600,
