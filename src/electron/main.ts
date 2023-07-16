@@ -22,8 +22,6 @@ const createWindow = (): void => {
 
     window.loadURL(`file://${file}`);
   }
-
-  window.webContents.openDevTools();
 };
 
 app.whenReady().then(() => {
